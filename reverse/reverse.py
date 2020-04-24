@@ -47,4 +47,11 @@ class LinkedList:
 
     def reverse_list(self, node, prev):
         # You must use recursion for this solution
-        pass
+        # To reverse a SLL, simply reverse the direction of all pointers and move head to the opposite side.
+        # Base case: If the current node is None, stop and set the previous node to head.
+        if node == None and prev != None:
+            self.head = prev
+            return
+        elif node != None:
+            self.reverse_list(node.get_next(), node)
+            node.set_next(prev)
